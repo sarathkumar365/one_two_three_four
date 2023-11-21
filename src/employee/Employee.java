@@ -8,6 +8,7 @@ public class Employee {
     private double monthly_income;
     private  double rate;
 
+
     public Employee(String name,int birth_year,double monthly_income,double rate){
         this.name  = name;
         this.birth_year = birth_year;
@@ -62,5 +63,9 @@ public class Employee {
         System.out.println("We have a new employee: " + this.name);
     }
 
+    // annual income calculate method
+    public double calcAnnualIncome() {
+        return (12 * monthly_income ) * rate;
+    }
 
 }
