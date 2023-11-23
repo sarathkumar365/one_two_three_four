@@ -1,5 +1,7 @@
 package employee;
 
+import vehicle.Motorcycle;
+
 public class Tester extends Employee {
     private int nbBugs;
 
@@ -8,5 +10,21 @@ public class Tester extends Employee {
     public Tester(String name,int birth_year,double monthly_income, double rate, int nbBugs) {
         super(name,birth_year,monthly_income,rate);
         this.nbBugs = nbBugs;
+        displayInitializationMessage();
+    }
+
+    public Tester(String name, int birth_year, double monthly_income, double rate, Motorcycle m2) {
+        super(name,birth_year,monthly_income,rate);
+        setVehicle(m2);
+        displayInitializationMessage();
+    }
+
+    public Tester(String name, int birth_year, int nbBugs, int rate) {
+        super(name, birth_year, nbBugs, rate);
+        displayInitializationMessage();
+    }
+
+    public void displayInitializationMessage() {
+        System.out.println("We have a new employee: " + getName() + ", a tester");
     }
 }

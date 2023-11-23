@@ -1,6 +1,13 @@
 import employee.Employee;
+import employee.Manager;
+import employee.Programmer;
+import employee.Tester;
+import vehicle.*;
 
+import java.sql.SQLOutput;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -8,23 +15,32 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        List<Employee> employees = new ArrayList<>();
+
         Scanner read = new Scanner(System.in);
 
-        System.out.println("Welcome to out employee management system!!");
+        // constructor for Motorcycle
+        // make, plate, color, category, sidecar
+        Motorcycle m1 = new Motorcycle("Kawasaki", "Custom Plate", "Yellow", VehicleType.RACE, false);
+        Motorcycle m2 = new Motorcycle("Honda", "Custom Plate", "Black", VehicleType.NOT_FOR_RACE, true);
 
-        System.out.println("Enter employee name :- ");
-        String employee_name = read.nextLine();
+        // constructor for Car
+        // make, plate, color, category, gear, type
+        Car vt1 = new Car("Lamborghini", "Custom Plate", "White", VehicleCategory.FAMILY, GearType.MANUAL, CarType.SPORT);
+        Car vt2 = new Car("BMW", "Custom Plate", "Black", VehicleCategory.FAMILY, GearType.AUTOMATIC, CarType.SEDAN);
+        Car vt3 = new Car("Renault Clio", "Custom Plate", "Blue", VehicleCategory.FAMILY, GearType.MANUAL, CarType.HATCHBACK);
+        Car vt4 = new Car("Mazda", "Custom Plate", "White", VehicleCategory.FAMILY, GearType.AUTOMATIC, CarType.SUV);
 
-        System.out.println("Enter birth year :- ");
-        int employee_birth_year = read.nextInt();
 
-        System.out.println("Enter birth monthly income :- ");
-        double employee_monthly_income = read.nextDouble();
+        //TEST 1
+        System.out.println("Test 1: ");
+        allTests.hireTest1();
 
-        System.out.println("Enter birth occupation rate :- ");
-        double employee_occupation_rate = read.nextDouble();
+        System.out.println("Test 2: ");
+        System.out.println("Employees description: ");
+        allTests.hireTest2(m1,m2,vt1,vt2,vt3,vt4);
 
-        Employee emp1 = new Employee(employee_name,employee_birth_year,employee_monthly_income,employee_occupation_rate);
-//        System.out.println("Employee age is :- " + emp1.getCurrentAge());
+//        System.out.println("TEST3");
+
     }
 }

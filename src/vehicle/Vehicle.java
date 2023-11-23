@@ -2,14 +2,23 @@ package vehicle;
 
 public class Vehicle {
     private String make;
-    private int plate;
+    private String plate;
     private String color;
-    private VehicleCategory category;
-    public Vehicle(String make,int plate,String color, VehicleCategory category) {
+    private VehicleType category;
+
+    private VehicleCategory v_category;
+    public Vehicle(String make,String plate,String color, VehicleType category) {
         this.make = make;
         this.plate = plate;
         this.color = color;
         this.category = category;
+    }
+
+    public Vehicle(String make,String plate,String color, VehicleCategory v_category) {
+        this.make = make;
+        this.plate = plate;
+        this.color = color;
+        this.v_category = v_category;
     }
 
     // Getters and Setters
@@ -21,11 +30,11 @@ public class Vehicle {
         this.make = make;
     }
 
-    public int getPlate() {
+    public String getPlate() {
         return plate;
     }
 
-    public void setPlate(int plate) {
+    public void setPlate(String plate) {
         this.plate = plate;
     }
 
@@ -37,11 +46,11 @@ public class Vehicle {
         this.color = color;
     }
 
-    public VehicleCategory getCategory() {
+    public VehicleType getCategory() {
         return category;
     }
 
-    public void setCategory(VehicleCategory category) {
+    public void setCategory(VehicleType category) {
         this.category = category;
     }
 }
