@@ -1,5 +1,7 @@
 package vehicle;
 
+import employee.Employee;
+
 public class Vehicle {
     private String make;
     private String plate;
@@ -47,10 +49,14 @@ public class Vehicle {
     }
 
     public VehicleType getCategory() {
-        return category;
+        return this.category;
     }
 
     public void setCategory(VehicleType category) {
         this.category = category;
+    }
+
+    public VehicleCategory getVehicleCategory() {
+        return this.v_category;
     }
 }

@@ -26,7 +26,7 @@ public class Main {
 
         // constructor for Car
         // make, plate, color, category, gear, type
-        Car vt1 = new Car("Lamborghini", "Custom Plate", "White", VehicleCategory.FAMILY, GearType.MANUAL, CarType.SPORT);
+        Car vt1 = new Car   ("Lamborghini", "Custom Plate", "White", VehicleCategory.FAMILY, GearType.MANUAL, CarType.SPORT);
         Car vt2 = new Car("BMW", "Custom Plate", "Black", VehicleCategory.FAMILY, GearType.AUTOMATIC, CarType.SEDAN);
         Car vt3 = new Car("Renault Clio", "Custom Plate", "Blue", VehicleCategory.FAMILY, GearType.MANUAL, CarType.HATCHBACK);
         Car vt4 = new Car("Mazda", "Custom Plate", "White", VehicleCategory.FAMILY, GearType.AUTOMATIC, CarType.SUV);

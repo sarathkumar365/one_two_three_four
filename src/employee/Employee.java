@@ -97,35 +97,61 @@ public class Employee {
     }
 
     public void displayData(Employee employee) {
-        if(employee instanceof Manager){
+
+        if (employee instanceof Manager) {
             System.out.println("Name: " + name + ",a Manager");
-            System.out.println("Age: " + getCurrentAge());
-            System.out.println("Employee has a car");
-            System.out.println("- make: " + employee.vehicle.getMake() );
-            System.out.println("- plate: " + employee.vehicle.getPlate());
-            System.out.println("- color: " + employee.vehicle.getColor());
-            System.out.println("- category " + employee.vehicle.getCategory());
-//            System.out.println("- gear type " +  employee.ge);
-        }
-
-        if(employee instanceof Tester){
+        } else if (employee instanceof Tester) {
             System.out.println("Name: " + name + ",a Tester");
-            System.out.println("Age: " + getCurrentAge());
-            System.out.println("Employee has a car");
-            System.out.println("- make: " + employee.vehicle.getMake() );
-            System.out.println("- plate: " + employee.vehicle.getPlate());
-            System.out.println("- color: " + employee.vehicle.getColor());
-            System.out.println("- category " + employee.vehicle.getCategory());
-        }
-
-        if(employee instanceof Programmer){
+        } else if (employee instanceof Programmer) {
             System.out.println("Name: " + name + ",a Programmer");
-            System.out.println("Age: " + getCurrentAge());
-            System.out.println("Employee has a car");
-            System.out.println("- make: " + employee.vehicle.getMake() );
-            System.out.println("- plate: " + employee.vehicle.getPlate());
-            System.out.println("- color: " + employee.vehicle.getColor());
-            System.out.println("- category " + employee.vehicle.getCategory());
         }
+        System.out.println("Age: " + getCurrentAge());
+        System.out.println("Employee has a car");
+        System.out.println("- make: " + employee.vehicle.getMake() );
+        System.out.println("- plate: " + employee.vehicle.getPlate());
+        System.out.println("- color: " + employee.vehicle.getColor());
+        System.out.println("- category: " + employee.vehicle.getVehicleCategory());
+
+        System.out.println("- gear type: " +  ((Car) employee.vehicle).getGearType());
+        System.out.println("- type: " + ((Car) employee.vehicle).getGearType());
+
+//        if(employee instanceof Manager){
+//            System.out.println("Name: " + name + ",a Manager");
+//            System.out.println("Age: " + getCurrentAge());
+//            System.out.println("Employee has a car");
+//            System.out.println("- make: " + employee.vehicle.getMake() );
+//            System.out.println("- plate: " + employee.vehicle.getPlate());
+//            System.out.println("- color: " + employee.vehicle.getColor());
+//            System.out.println("- category: " + employee.vehicle.getVehicleCategory());
+//
+//            System.out.println("- gear type: " +  ((Car) employee.vehicle).getGearType());
+//            System.out.println("- type: " + ((Car) employee.vehicle).getGearType());
+//        }
+
+//        if(employee instanceof Tester){
+//            System.out.println("Name: " + name + ",a Tester");
+//            System.out.println("Age: " + getCurrentAge());
+//            System.out.println("Employee has a car");
+//            System.out.println("- make: " + employee.vehicle.getMake() );
+//            System.out.println("- plate: " + employee.vehicle.getPlate());
+//            System.out.println("- color: " + employee.vehicle.getColor());
+//            System.out.println("- category " + employee.vehicle.getVehicleCategory());
+//            System.out.println("- gear type: " + ((Car) employee.vehicle).getGearType());
+//
+//
+//        }
+
+//        if(employee instanceof Programmer){
+//            System.out.println("Name: " + name + ",a Programmer");
+//            System.out.println("Age: " + getCurrentAge());
+//            System.out.println("Employee has a car");
+//            System.out.println("- make: " + employee.vehicle.getMake() );
+//            System.out.println("- plate: " + employee.vehicle.getPlate());
+//            System.out.println("- color: " + employee.vehicle.getColor());
+//            System.out.println("- category " + employee.vehicle.getVehicleCategory());
+//            System.out.println("- gear type: " + ((Car) employee.vehicle).getGearType());
+//
+//
+//        }
     }
 }
