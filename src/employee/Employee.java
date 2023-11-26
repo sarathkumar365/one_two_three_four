@@ -19,8 +19,6 @@ public class Employee {
         this.birth_year = birth_year;
         setMonthly_income(monthly_income);
         setRate(rate);
-//        displayInitializationMessage();
-
     }
 
     public Employee(String name,int birth_year,double rate){
@@ -55,6 +53,8 @@ public class Employee {
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
     }
+
+
     public void setBirth_year(int birth_year) {
         this.birth_year = birth_year;
     }
@@ -69,7 +69,7 @@ public class Employee {
         } else if (rate > 100) {
             this.rate = 100;
         } else {
-            this.rate = 100;
+            this.rate = rate;
         }
     }
 
@@ -81,20 +81,21 @@ public class Employee {
         return currentYear - birthYear;
     }
 
+    public double getBaseYearlyIncome () {
+                System.out.println(getMonthly_income() + "-monthly------------------rate-" + getRate());
+        return ( 12 * getMonthly_income() ) * getRate();
+    }
+
     // Display initialization message
     public void displayInitializationMessage() {
 
         System.out.println("We have a new employee: " + this.name);
     }
 
-    public void displayInitializationMessage(Employee employee) {
-
-        System.out.println("We have a new employee: " + this.name + ", a manager");
-    }
-    // annual income calculate method
-    public double calcAnnualIncome() {
-        return (12 * monthly_income ) * rate;
-    }
+//    public void displayInitializationMessage(Employee employee) {
+//
+//        System.out.println("We have a new employee: " + this.name + ", a manager");
+//    }
 
     public void displayData(Employee employee) {
 
@@ -105,53 +106,53 @@ public class Employee {
         } else if (employee instanceof Programmer) {
             System.out.println("Name: " + name + ",a Programmer");
         }
+
         System.out.println("Age: " + getCurrentAge());
-        System.out.println("Employee has a car");
+
+        if(employee.vehicle instanceof Car) {
+            System.out.println("Employee has a Car");
+        } else {
+            System.out.println("Employee has a Motorcycle");
+        }
+
         System.out.println("- make: " + employee.vehicle.getMake() );
         System.out.println("- plate: " + employee.vehicle.getPlate());
         System.out.println("- color: " + employee.vehicle.getColor());
-        System.out.println("- category: " + employee.vehicle.getVehicleCategory());
 
-        System.out.println("- gear type: " +  ((Car) employee.vehicle).getGearType());
-        System.out.println("- type: " + ((Car) employee.vehicle).getGearType());
+        if(employee.vehicle instanceof Car) {
+            System.out.println("- category: " + employee.vehicle.getVehicleCategory());
+            System.out.println("- gear type: " +  ((Car) employee.vehicle).getGearType());
+//            System.out.println("- type: " +  ((Car) employee.vehicle).getCarType());
+            System.out.println("- type: " +  ((Car) employee.vehicle).getCarType());
+        } else {
+            System.out.println("- category: " + employee.vehicle.getCategory());
+        }
 
-//        if(employee instanceof Manager){
-//            System.out.println("Name: " + name + ",a Manager");
-//            System.out.println("Age: " + getCurrentAge());
-//            System.out.println("Employee has a car");
-//            System.out.println("- make: " + employee.vehicle.getMake() );
-//            System.out.println("- plate: " + employee.vehicle.getPlate());
-//            System.out.println("- color: " + employee.vehicle.getColor());
-//            System.out.println("- category: " + employee.vehicle.getVehicleCategory());
-//
-//            System.out.println("- gear type: " +  ((Car) employee.vehicle).getGearType());
-//            System.out.println("- type: " + ((Car) employee.vehicle).getGearType());
-//        }
+        if(employee instanceof Manager) {
+            System.out.println("Name: " + name + ",has an occupation rate: " + employee.getRate() + "%" +
+                    " He/She travelled "+
+                    ((Manager) employee).getNbTravelDays() + " days and has brought " +
+                    ((Manager) employee).getNbClients() + " new clients");
 
-//        if(employee instanceof Tester){
-//            System.out.println("Name: " + name + ",a Tester");
-//            System.out.println("Age: " + getCurrentAge());
-//            System.out.println("Employee has a car");
-//            System.out.println("- make: " + employee.vehicle.getMake() );
-//            System.out.println("- plate: " + employee.vehicle.getPlate());
-//            System.out.println("- color: " + employee.vehicle.getColor());
-//            System.out.println("- category " + employee.vehicle.getVehicleCategory());
-//            System.out.println("- gear type: " + ((Car) employee.vehicle).getGearType());
-//
-//
-//        }
+            System.out.println("His/Her estimated annual income is " +
+                    ((Manager) employee).calcAnnualIncome(((Manager) employee).
+                            getNbTravelDays(),((Manager) employee).getNbClients()));
+        }
 
-//        if(employee instanceof Programmer){
-//            System.out.println("Name: " + name + ",a Programmer");
-//            System.out.println("Age: " + getCurrentAge());
-//            System.out.println("Employee has a car");
-//            System.out.println("- make: " + employee.vehicle.getMake() );
-//            System.out.println("- plate: " + employee.vehicle.getPlate());
-//            System.out.println("- color: " + employee.vehicle.getColor());
-//            System.out.println("- category " + employee.vehicle.getVehicleCategory());
-//            System.out.println("- gear type: " + ((Car) employee.vehicle).getGearType());
-//
-//
-//        }
+        if(employee instanceof Programmer) {
+            System.out.println("Name: " + name + ",has an occupation rate: " + employee.getRate() + "%" +
+                    " and completed "+ ((Programmer) employee).getNbProjects() + " projects.");
+
+            System.out.println("His/Her estimated annual income is " + ((Programmer) employee).calcAnnualIncome());
+        }
+
+        if(employee instanceof Tester) {
+            System.out.println("Name: " + name + ",has an occupation rate: " + employee.getRate() + "%" +
+                    " and corrected "+ ((Tester) employee).getNbBugs() + " bugs");
+
+            System.out.println("His/Her estimated annual income is " + ((Tester) employee).calcAnnualIncome());
+        }
+
     }
+
 }

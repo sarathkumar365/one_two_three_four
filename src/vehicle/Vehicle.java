@@ -6,14 +6,14 @@ public class Vehicle {
     private String make;
     private String plate;
     private String color;
-    private VehicleType category;
+    private VehicleType v_type;
 
     private VehicleCategory v_category;
-    public Vehicle(String make,String plate,String color, VehicleType category) {
+    public Vehicle(String make,String plate,String color, VehicleType v_type) {
         this.make = make;
         this.plate = plate;
         this.color = color;
-        this.category = category;
+        this.v_type = v_type;
     }
 
     public Vehicle(String make,String plate,String color, VehicleCategory v_category) {
@@ -49,11 +49,11 @@ public class Vehicle {
     }
 
     public VehicleType getCategory() {
-        return this.category;
+        return this.v_type;
     }
 
-    public void setCategory(VehicleType category) {
-        this.category = category;
+    public void setCategory(VehicleType v_type) {
+        this.v_type = v_type;
     }
 
     public VehicleCategory getVehicleCategory() {

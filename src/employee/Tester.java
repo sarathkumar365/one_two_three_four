@@ -13,8 +13,15 @@ public class Tester extends Employee {
         displayInitializationMessage();
     }
 
-    public Tester(String name, int birth_year, double monthly_income, double rate, Motorcycle m2) {
-        super(name,birth_year,monthly_income,rate);
+//    public Tester(String name, int birth_year, double monthly_income, double rate, Motorcycle m2) {
+//        super(name,birth_year,monthly_income,rate);
+//        setVehicle(m2);
+//        displayInitializationMessage();
+//    }
+
+    public Tester(String name, int birth_year, int nbBugs, double rate, Motorcycle m2) {
+        super(name,birth_year,0,rate);
+        this.nbBugs = nbBugs;
         setVehicle(m2);
         displayInitializationMessage();
     }
@@ -26,5 +33,13 @@ public class Tester extends Employee {
 
     public void displayInitializationMessage() {
         System.out.println("We have a new employee: " + getName() + ", a tester");
+    }
+
+    public int getNbBugs() {
+        return  this.nbBugs;
+    }
+
+    public double calcAnnualIncome() {
+        return (GAIN_FACTOR_ERROR * getNbBugs());
     }
 }

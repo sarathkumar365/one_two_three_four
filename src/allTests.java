@@ -36,9 +36,12 @@ public class allTests {
         employees.add(new Tester("Pierre", 1987, 124, 50, m2));
         employees.add(new Programmer("Matt", 1981, 5, 110, vt4));
         employees.add(new Programmer("Sarah", 1986, 3, vt3));
+
         for (Employee employee : employees) {
             System.out.println("-------------------------");
             employee.displayData(employee);
+//            if(employee instanceof Manager ) employee.displayData(employee, (Manager) employee);
+//            if(employee instanceof Tester ) employee.displayData(employee, (Tester) employee);
             System.out.println("-------------------------");
         }
     }
