@@ -89,17 +89,17 @@ public class allTests {
         }
         System.out.println("-------------------------");
 
-        // updating Matt's contract
-//        Contract p5 = new Permanent(1, true, 5000, 200, 30);
-//        Matt.signContract(p5);
+//         updating Matt's contract
+        Contract p5 = new PermanentEmployee(1, true, 5000, 200, 30);
+        Matt.signContract(p5);
 
-//        System.out.println("-------------------------");
-//        System.out.println("Contracts: ");
-//        System.out.println("-------------------------");
-//        for (Employee employee : employees) {
-//            employee.contractInfo();
-//        }
-//        System.out.println("-------------------------");
+        System.out.println("-------------------------");
+        System.out.println("Contracts: ");
+        System.out.println("-------------------------");
+        for (Employee employee : employees) {
+            employee.contractInfo(employee);
+        }
+        System.out.println("-------------------------");
 
     }
 }
