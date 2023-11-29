@@ -15,6 +15,7 @@ public class Programmer extends Employee{
         super(name,birth_year,nbProjects,rate);
         this.nbProjects = nbProjects;
         setVehicle(motorcycle);
+        displayInitializationMessage();
     }
 
 
@@ -22,6 +23,7 @@ public class Programmer extends Employee{
         super(name,birth_year,0,rate);
         this.nbProjects = nbProjects;
         setVehicle(car);
+        displayInitializationMessage();
     }
 
     public Programmer(String name, int birth_year, int nbProjects, int rate) {

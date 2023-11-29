@@ -1,7 +1,5 @@
-import employee.Employee;
-import employee.Manager;
-import employee.Programmer;
-import employee.Tester;
+import contracts.Contract;
+import employee.*;
 import vehicle.Car;
 import vehicle.Motorcycle;
 
@@ -40,9 +38,68 @@ public class allTests {
         for (Employee employee : employees) {
             System.out.println("-------------------------");
             employee.displayData(employee);
-//            if(employee instanceof Manager ) employee.displayData(employee, (Manager) employee);
-//            if(employee instanceof Tester ) employee.displayData(employee, (Tester) employee);
             System.out.println("-------------------------");
         }
+    }
+
+    static void hireTest3(Motorcycle m1, Motorcycle m2, Car vt1, Car vt2, Car vt3, Car vt4) {
+        employees.clear();
+
+        Employee Serge = new Manager("Serge", 1985, 30, 4, vt1);
+        Employee Cindy = new Manager("Cindy", 1974, 20, 6, 80, vt2);
+        Employee Paul = new Programmer("Paul", 1993, 3, 75, m1);
+        Employee Pierre = new Tester("Pierre", 1987, 124, 50, m2);
+        Employee Matt = new Programmer("Matt", 1981, 5, 110, vt4);
+        Employee Sarah = new Programmer("Sarah", 1986, 3, vt3);
+
+        // Permanent: nbChildren, married, monthlySalary, bonusPerChildPerMonth, accumulatedDays
+        // Temporary: hourlySalary, accumulatedHours
+        Contract p1 = new PermanentEmployee(2, true, 6000, 200, 17);
+        Contract p2 = new PermanentEmployee(3, false, 5000, 150, 19);
+        Contract t1 = new TempEmployee(60, 30);
+        Contract t2 = new TempEmployee(50, 60);
+        Contract p3 = new PermanentEmployee(1, true, 4000, 100, 20);
+        Contract p4 = new PermanentEmployee(4, true, 4500, 100, 19);
+
+        Serge.signContract(p1);
+        Cindy.signContract(p2);
+        Paul.signContract(t1);
+        Matt.signContract(t2);
+        Pierre.signContract(p3);
+        Sarah.signContract(p4);
+
+        employees.add(Serge);
+        employees.add(Cindy);
+        employees.add(Paul);
+        employees.add(Pierre);
+        employees.add(Matt);
+        employees.add(Sarah);
+
+        for (Employee employee : employees) {
+            System.out.println("-------------------------");
+            employee.displayData(employee);
+            System.out.println("-------------------------");
+        }
+
+        System.out.println("-------------------------");
+        System.out.println("Contracts: ");
+        System.out.println("-------------------------");
+        for (Employee employee : employees) {
+            employee.contractInfo(employee);
+        }
+        System.out.println("-------------------------");
+
+        // updating Matt's contract
+//        Contract p5 = new Permanent(1, true, 5000, 200, 30);
+//        Matt.signContract(p5);
+
+//        System.out.println("-------------------------");
+//        System.out.println("Contracts: ");
+//        System.out.println("-------------------------");
+//        for (Employee employee : employees) {
+//            employee.contractInfo();
+//        }
+//        System.out.println("-------------------------");
+
     }
 }

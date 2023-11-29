@@ -34,13 +34,16 @@ public class Main {
 
         //TEST 1
         System.out.println("Test 1: ");
-        allTests.hireTest1();
+//        allTests.hireTest1();
 
         System.out.println("Test 2: ");
         System.out.println("Employees description: ");
-        allTests.hireTest2(m1,m2,vt1,vt2,vt3,vt4);
+//        allTests.hireTest2(m1,m2,vt1,vt2,vt3,vt4);
 
-//        System.out.println("TEST3");
+//        TEST 3
+        System.out.println("Test 3: ");
+        System.out.println("Employees description: ");
+        allTests.hireTest3(m1,m2,vt1,vt2,vt3,vt4);
 
     }
 }

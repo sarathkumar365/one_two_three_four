@@ -1,6 +1,9 @@
 package employee;
 
+import contracts.Contract;
 import vehicle.Motorcycle;
+
+import java.lang.module.Configuration;
 
 public class Tester extends Employee {
     private int nbBugs;
@@ -40,6 +43,7 @@ public class Tester extends Employee {
     }
 
     public double calcAnnualIncome() {
+//        int accumulatedSalary = Contract.
         return (GAIN_FACTOR_ERROR * getNbBugs());
     }
 }

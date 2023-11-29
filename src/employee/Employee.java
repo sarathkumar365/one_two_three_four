@@ -1,5 +1,6 @@
 package employee;
 
+import contracts.Contract;
 import vehicle.Car;
 import vehicle.Vehicle;
 
@@ -9,9 +10,13 @@ public class Employee {
     private String name;
     private  int birth_year;
     private double monthly_income;
+
+    private int age;
     private  double rate;
 
     private Vehicle vehicle;
+
+    private Contract contract;
 
 
     public Employee(String name,int birth_year,double monthly_income,double rate){
@@ -24,18 +29,30 @@ public class Employee {
     public Employee(String name,int birth_year,double rate){
         this.name  = name;
         this.birth_year = birth_year;
-//        displayInitializationMessage();
-
     }
 
+    public Employee() {
+//        System.out.println("EMPTY -- Employee constructor for permenant emp invoked");
+    }
+
+
     // GETTERS
+
+    // set contract
+    public void signContract(Contract contract) {
+        this.contract = contract;
+    }
+
+    public Contract getContract() {
+        return contract;
+    }
 
     public String getName () {
         return this.name;
     }
     public int getCurrentAge() {
         int age = calculateAge(this.birth_year);
-
+        this.age = age;
         return  age;
     }
     public double getMonthly_income() {
@@ -44,10 +61,6 @@ public class Employee {
     public double getRate() {
         return rate;
     }
-
-//    public String getVehicle() {
-//        return vehicle.getMake();
-//    }
 
     // SETTERS
     public void setVehicle(Vehicle vehicle) {
@@ -69,7 +82,7 @@ public class Employee {
         } else if (rate > 100) {
             this.rate = 100;
         } else {
-            this.rate = rate;
+            this.rate = 100;
         }
     }
 
@@ -82,7 +95,6 @@ public class Employee {
     }
 
     public double getBaseYearlyIncome () {
-                System.out.println(getMonthly_income() + "-monthly------------------rate-" + getRate());
         return ( 12 * getMonthly_income() ) * getRate();
     }
 
@@ -91,11 +103,6 @@ public class Employee {
 
         System.out.println("We have a new employee: " + this.name);
     }
-
-//    public void displayInitializationMessage(Employee employee) {
-//
-//        System.out.println("We have a new employee: " + this.name + ", a manager");
-//    }
 
     public void displayData(Employee employee) {
 
@@ -136,7 +143,7 @@ public class Employee {
 
             System.out.println("His/Her estimated annual income is " +
                     ((Manager) employee).calcAnnualIncome(((Manager) employee).
-                            getNbTravelDays(),((Manager) employee).getNbClients()));
+                            getNbTravelDays(),((Manager) employee).getNbClients(),employee));
         }
 
         if(employee instanceof Programmer) {
@@ -153,6 +160,46 @@ public class Employee {
             System.out.println("His/Her estimated annual income is " + ((Tester) employee).calcAnnualIncome());
         }
 
+    }
+
+    public void displayContractInfo(Employee employee) {
+
+        boolean isMarried = employee.contract.getIsMarried();
+        int noOfChildren = employee.contract.getNumberOfChildren();
+
+        String str = isMarried ? "he is married and he/she has " + noOfChildren + " children." : "he is not married and he/she has "
+                + noOfChildren + " children.";
+
+
+        switch (employee) {
+            case Manager manager -> {
+                System.out.println(name + ",is a Manager." + str);
+                System.out.println("He/She has worked for " + employee.contract.getDaysWorked() + " days and upon contract his/her monthly salary is " +
+                        employee.contract.getFixedMonthlySalary());
+            }
+            case Tester tester -> {
+                System.out.println(name + ",is a Tester." + (str));
+                System.out.println("He/She has worked for " + employee.contract.getDaysWorked() + " days and upon contract his/her monthly salary is " +
+                        employee.contract.getFixedMonthlySalary());
+            }
+            case Programmer programmer -> {
+                if (employee.contract instanceof TempEmployee) {
+                    System.out.println(name + ",is a Programmer. he is a  temporary employee with " + employee.contract.getHourlySalary() + " hourly salary " +
+                            "and he has worked for " + employee.contract.getAccumulatedHours() + " hours");
+                    return;
+                }
+                System.out.println(name + ",is a Tester." + (str));
+                System.out.println("He/She has worked for " + employee.contract.getDaysWorked() + " days and upon contract his/her monthly salary is " +
+                        employee.contract.getFixedMonthlySalary());
+            }
+            case null, default -> {
+            }
+        }
+
+    }
+
+    public void contractInfo (Employee employee) {
+        displayContractInfo(employee);
     }
 
 }
