@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class allTests {
-
-    //        static double workingDaysPerMonth = 20.0;
     double workingDaysPerMonth = 20.0;
     static List<Employee> employees = new ArrayList<>();
 
